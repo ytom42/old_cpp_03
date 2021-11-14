@@ -6,7 +6,7 @@
 /*   By: ytomiyos <ytomiyos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 10:27:02 by ytomiyos          #+#    #+#             */
-/*   Updated: 2021/11/14 12:25:46 by ytomiyos         ###   ########.fr       */
+/*   Updated: 2021/11/14 14:38:43 by ytomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(void)
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "CrapTrap constructor called" << std::endl;
+	std::cout << "CrapTrap constructor called(" << this->_name << ")" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &other)
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(ClapTrap const &other)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called(" << this->_name << ")" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other)
@@ -47,8 +47,10 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other)
 
 void ClapTrap::attack(std::string const &target)
 {
+	this->_energyPoints -= this->_attackDamage;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target
-		<< ", causing " << this->_attackDamage << " points of damage!"
+		<< ", causing " << this->_attackDamage << " points of damage!" << std::endl
+		<< this->_name << "'s Energy points: " << this->_energyPoints
 		<< std::endl;
 }
 
@@ -65,8 +67,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_hitPoints += amount;
-	if (this->_hitPoints > this->_energyPoints)
-		this->_hitPoints = this->_energyPoints;
 	std::cout << "ClapTrap " << this->_name << " is repaired "
 		<< amount << " points!" << std::endl
 		<< this->_name << "'s Hit points: " << this->_hitPoints << std::endl;
