@@ -6,7 +6,7 @@
 /*   By: ytomiyos <ytomiyos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 13:33:21 by ytomiyos          #+#    #+#             */
-/*   Updated: 2021/11/14 15:49:13 by ytomiyos         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:46:55 by ytomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &other);
 		~ScavTrap(void);
 		ScavTrap &operator=(const ScavTrap &other);
+		void attack(std::string const &target);
 		void guardGate();
 };
 
