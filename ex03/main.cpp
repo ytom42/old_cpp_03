@@ -6,7 +6,7 @@
 /*   By: ytomiyos <ytomiyos@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 10:26:54 by ytomiyos          #+#    #+#             */
-/*   Updated: 2021/11/14 17:27:00 by ytomiyos         ###   ########.fr       */
+/*   Updated: 2021/11/15 17:02:48 by ytomiyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 
 int main()
 {
-	// ClapTrap c1("c1");
-	// ScavTrap s1("s1");
-	// FragTrap f1("f1");
+	ClapTrap clap("clap");
+	ScavTrap scav("scav");
+	FragTrap frag("frag");
+	DiamondTrap diamond("diamond");
 
-	DiamondTrap d1("d1");
+	diamond.whoAmI();
 
 	return (0);
 }
